@@ -158,7 +158,7 @@ useEffect(() => {
   }
 
   fetchDropdownData();
-});
+}, []);
 
 
   useEffect(() => {
@@ -191,8 +191,8 @@ useEffect(() => {
   }, [filter, filterBy]);
 
   
-// const ProductTypeDropdown = ({ value, onChange }) => {
-//   const [productTypes, setProductTypes] = useState([]);
+const ProductTypeDropdown = ({ value, onChange }) => {
+  const [productTypes, setProductTypes] = useState([]);
 
   useEffect(() => {
     const fetchProductTypes = async () => {
@@ -205,26 +205,26 @@ useEffect(() => {
     };
 
     fetchProductTypes();
-  });
+  }, []);
 }
 
-  // const addProductType = async (name) => {
-  //   try {
-  //     const response = await axios.post(`${process.env.url}/api/product-types`, { name });
-  //     setProductTypes([...productTypes, response.data]); // Update state with new item
-  //   } catch (error) {
-  //     console.error('Error adding product type:', error);
-  //   }
-  // };
+  const addProductType = async (name) => {
+    try {
+      const response = await axios.post(`${process.env.url}/api/product-types`, { name });
+      setProductTypes([...productTypes, response.data]); // Update state with new item
+    } catch (error) {
+      console.error('Error adding product type:', error);
+    }
+  };
 
-  // const updateProductType = async (id, newName) => {
-  //   try {
-  //     const response = await axios.put(`${process.env.url}/api/product-types/${id}`, { name: newName });
-  //     setProductTypes(productTypes.map((type) => (type._id === id ? response.data : type)));
-  //   } catch (error) {
-  //     console.error('Error updating product type:', error);
-  //   }
-  // };
+  const updateProductType = async (id, newName) => {
+    try {
+      const response = await axios.put(`${process.env.url}/api/product-types/${id}`, { name: newName });
+      setProductTypes(productTypes.map((type) => (type._id === id ? response.data : type)));
+    } catch (error) {
+      console.error('Error updating product type:', error);
+    }
+  };
   
 
 // const handleReturn = async () => {
@@ -383,93 +383,93 @@ const handleAssignAsset = async () => {
       } else {
         setLoading(false);
       }
-    });
+    }, []);
   
-  // const handleStatusChange = (e) => {
-  //   const value = e.target.value;
-  //   if (value === 'other') {
-  //     setSelectedStatus('');
-  //     setNewAsset({ ...newAsset, status: '' }); // Reset newAsset.status when selecting "Other"
-  //   } else {
-  //     setSelectedStatus(value);
-  //     setNewAsset({ ...newAsset, status: value }); // Ensure newAsset.status is updated
-  //     setNewStatus('');
-  //   }
-  // };
+  const handleStatusChange = (e) => {
+    const value = e.target.value;
+    if (value === 'other') {
+      setSelectedStatus('');
+      setNewAsset({ ...newAsset, status: '' }); // Reset newAsset.status when selecting "Other"
+    } else {
+      setSelectedStatus(value);
+      setNewAsset({ ...newAsset, status: value }); // Ensure newAsset.status is updated
+      setNewStatus('');
+    }
+  };
   
   
-  // const handleAddNewStatus = () => {
-  //   if (newStatus && !statuses.includes(newStatus)) {
-  //     setStatuses([...statuses, newStatus]); // Add the new status to the list
-  //     setSelectedStatus(newStatus); // Select the new status
-  //     setNewAsset({ ...newAsset, status: newStatus }); // Ensure newAsset.status is updated
-  //     setNewStatus('');
-  //   }
-  // };
+  const handleAddNewStatus = () => {
+    if (newStatus && !statuses.includes(newStatus)) {
+      setStatuses([...statuses, newStatus]); // Add the new status to the list
+      setSelectedStatus(newStatus); // Select the new status
+      setNewAsset({ ...newAsset, status: newStatus }); // Ensure newAsset.status is updated
+      setNewStatus('');
+    }
+  };
   
 
-  // const handleAddSave = async () => {
-  //   try {
-  //     const res = await axios.post(`${process.env.url}/api/assets/add`, newAsset);
+  const handleAddSave = async () => {
+    try {
+      const res = await axios.post(`${process.env.url}/api/assets/add`, newAsset);
       
-  //     setAssets([...assets, res.data.asset]); // Update UI with the new asset
+      setAssets([...assets, res.data.asset]); // Update UI with the new asset
 
-  //     setSuccessMsg('Asset added successfully!');
-  //     setTimeout(() => setSuccessMsg(''), 3000); // Hide after 3 seconds
+      setSuccessMsg('Asset added successfully!');
+      setTimeout(() => setSuccessMsg(''), 3000); // Hide after 3 seconds
 
      
-  //     setIsAddDialogOpen(false); // Close the dialog
-  //     setNewAsset({
-  //       id: '',
-  //       name: '',
-  //       productType: '',
-  //       vendorName: '',
-  //       model: '',
-  //       qty: '',
-  //       assetLocation: '',
-  //       region: '',
-  //       status: '',
-  //       serialNumber: '',
-  //       manufactureDate: '',
-  //       installDate: '',
-  //     }); // Reset form
-  //   } catch (err) {
-  //     console.error('Error adding asset:', err);
-  //   }
-  // };
+      setIsAddDialogOpen(false); // Close the dialog
+      setNewAsset({
+        id: '',
+        name: '',
+        productType: '',
+        vendorName: '',
+        model: '',
+        qty: '',
+        assetLocation: '',
+        region: '',
+        status: '',
+        serialNumber: '',
+        manufactureDate: '',
+        installDate: '',
+      }); // Reset form
+    } catch (err) {
+      console.error('Error adding asset:', err);
+    }
+  };
   
 
-  // const openEditDialog = (asset) => {
-  //   setSelectedAsset(asset);
-  //   setIsEditDialogOpen(true);
-  // };
+  const openEditDialog = (asset) => {
+    setSelectedAsset(asset);
+    setIsEditDialogOpen(true);
+  };
 
 
 
-  // const handleEditChange = (e) => {
-  //   const { name, value } = e.target;
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
   
-  //   setSelectedAsset((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //     ...(name === "status" && value === "Decommissioned"
-  //       ? { decommissionedDate: new Date().toISOString().split("T")[0] } // Set today's date
-  //       : {}),
-  //   }));
-  // };
+    setSelectedAsset((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "status" && value === "Decommissioned"
+        ? { decommissionedDate: new Date().toISOString().split("T")[0] } // Set today's date
+        : {}),
+    }));
+  };
   
 
-  // const handleEditSave = async () => {
-  //   try {
-  //     await axios.put(`${process.env.url}/api/assets/${selectedAsset._id}`, selectedAsset);
-  //     setAssets((prev) =>
-  //       prev.map((asset) => (asset._id === selectedAsset._id ? selectedAsset : asset))
-  //     );
-  //     setIsEditDialogOpen(false);
-  //   } catch (err) {
-  //     console.error('Error updating asset:', err);
-  //   }
-  // };
+  const handleEditSave = async () => {
+    try {
+      await axios.put(`${process.env.url}/api/assets/${selectedAsset._id}`, selectedAsset);
+      setAssets((prev) =>
+        prev.map((asset) => (asset._id === selectedAsset._id ? selectedAsset : asset))
+      );
+      setIsEditDialogOpen(false);
+    } catch (err) {
+      console.error('Error updating asset:', err);
+    }
+  };
 
   if (loading) {
     return (
