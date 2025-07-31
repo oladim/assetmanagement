@@ -14,6 +14,7 @@ export default function Register() {
       alert('Registration successful! You can now log in.');
       window.location.href = '/main';
     } catch (err) {
+      console.log(err)
       alert('Registration failed. Please try again.');
     }
   }
