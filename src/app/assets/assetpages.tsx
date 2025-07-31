@@ -194,9 +194,10 @@ console.log(response.data)
   }}
 >
   <h2 style={{ fontSize: "1.8rem", marginBottom: "10px" }}>No Assets Found</h2>
-  <p style={{ fontSize: "1rem", color: "#777" }}>
-    It looks like you don't have any assets yet. Click the button below to add your first asset.
-  </p>
+ <p style={{ fontSize: "1rem", color: "#777" }}>
+  It looks like you don&apos;t have any assets yet. Click the button below to add your first asset.
+</p>
+
   <Button
     variant="contained"
     color="primary"

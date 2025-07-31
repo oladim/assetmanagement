@@ -5,10 +5,11 @@ import AssetPage from "../assets/page";
 import Administration from "../administration/page";
 import Settings from "../settings/page";
 import Dashboard from "../dashboard/page";
+import Image from 'next/image';
 // import { Button } from "@mui/material";
 import { useRouter } from 'next/navigation';
 // import { useAuth } from '../component/AuthContext';
-import { HiCog, HiOutlineArrowNarrowLeft, HiCurrencyDollar, HiLogout, HiViewGrid, HiOutlineUsers, HiOutlineZoomIn, HiOutlineUser } from 'react-icons/hi';
+import { HiCog, HiOutlineArrowNarrowLeft, HiViewGrid, HiOutlineUsers, HiOutlineZoomIn, HiOutlineUser } from 'react-icons/hi';
   
 import { isAuthenticated} from '../utilities/isAuthenticated'; // adjust path as needed
 
@@ -92,9 +93,14 @@ const renderPage = () => {
     gap: "15px",
   }}
 >
-  <div>
+  {/* <div>
     <img src="logo.png" alt="logo" className="pb-20" />
-  </div>
+  </div> */}
+
+  <Image className="pb-20"
+  src="logo.png" // relative to /public
+  alt="logo"
+/>
 
   {[{ name: "Dashboard", icon: <HiViewGrid className="text-2xl" /> },
     { name: "Assets", icon: <HiOutlineZoomIn className="text-2xl" /> },

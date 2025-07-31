@@ -373,8 +373,8 @@ const handleAssignAsset = async () => {
   };
   
   
-  const [newStatus, setNewStatus] = useState(''); // Track user input for a new status
-  const [selectedStatus, setSelectedStatus] = useState(''); // Track selected status
+  // const [newStatus, setNewStatus] = useState(''); // Track user input for a new status
+  const [selectedStatus] = useState(''); // Track selected status
 
    useEffect(() => {
       const token = localStorage.getItem('token');

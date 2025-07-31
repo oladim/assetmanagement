@@ -142,6 +142,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+ import Image from 'next/image';
 
 export default function Login() {
   const [mounted, setMounted] = useState(false);
@@ -151,6 +152,8 @@ export default function Login() {
   const router = useRouter();
   const [pendingApproval, setPendingApproval] = useState(false);
   const [message, setMessage] = useState('');
+ 
+
 
   useEffect(() => {
     setMounted(true);
@@ -202,9 +205,15 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <div>
+      {/* <div>
         <img src="blue.png" alt="logo" className="w-[200px]" />
-      </div>
+      </div> */}
+
+      <Image
+        src="blue.png" // relative to /public
+        alt="logo"
+        className="w-[200px]"
+/>
 
       <div className="text-center mb-4">
         <h1 className="text-3xl font-extrabold text-gray-800 tracking-tight">
