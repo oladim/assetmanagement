@@ -220,12 +220,16 @@ const ThresholdSection = () => {
       //   return acc;
       // });
 
-      const uniqueAssets = res.data.reduce<Asset[]>((acc, curr) => {
-        if (!acc.some(asset => asset.name === curr.name)) {
-        acc.push(curr);
-         }
-         return acc;
-      }, []);
+
+
+const data: Asset[] = res.data; // Explicitly typed
+const uniqueAssets = data.reduce((acc: Asset[], curr) => {
+  if (!acc.some(asset => asset.name === curr.name)) {
+    acc.push(curr);
+  }
+  return acc;
+}, []);
+
 
 
       setAssets(uniqueAssets);
