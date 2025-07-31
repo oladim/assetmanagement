@@ -10,7 +10,7 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post('http://10.11.15.175:5000/api/auth/register', { email, password });
+      await axios.post(`${process.env.url}/api/auth/register`, { email, password });
       alert('Registration successful! You can now log in.');
       window.location.href = '/main';
     } catch (err) {

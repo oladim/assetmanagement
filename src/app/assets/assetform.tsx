@@ -25,7 +25,7 @@ const AddAssetForm = () => {
     e.preventDefault();
     try {
       const token = sessionStorage.getItem('token'); // Assuming token is stored in localStorage
-      await axios.post('http://10.11.15.175:5000/assets', formData, {
+      await axios.post(`${process.env.mainurl}/assets`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Asset added successfully!');

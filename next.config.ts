@@ -3,11 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   env: {
-    url:`http://10.11.52.59:5000`,
-    producturl:'http://10.11.52.59:5000/api/product-types',
-    locationurl:'http://10.11.52.59:5000/api/locations',
-    vendorurl:'http://10.11.52.59:5000/api/vendors',
-    statusurl:'http://10.11.52.59:5000/api/status',
+    url:process.env.mainurl,
+    producturl:`${process.env.mainurl}/api/product-types`,
+    locationurl:`${process.env.mainurl}/api/locations`,
+    vendorurl:`${process.env.mainurl}/api/vendors`,
+    statusurl:`${process.env.mainurl}/api/status`,
   },
 };
 
