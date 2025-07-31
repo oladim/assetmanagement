@@ -19,7 +19,7 @@ const token = () => localStorage.getItem('token');
 const AdminSection = ({ title, endpoint }: { title: string; endpoint: string }) => {
   const router = useRouter();
 
-  const [items, setItems] = useState([]);
+ const [items, setItems] = useState<any[]>([]);
   const [newItem, setNewItem] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
