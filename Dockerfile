@@ -12,9 +12,8 @@ RUN npm install
 COPY . .
 
 # Build the Next.js app
-# RUN npm run build
-RUN npm run build || echo "TypeScript build failed but continuing..."
+RUN npm run build
 
 # Expose port and run the app
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
