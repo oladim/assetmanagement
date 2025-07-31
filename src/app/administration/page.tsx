@@ -201,18 +201,32 @@ const ThresholdSection = () => {
   const [selectedValue, setSelectedValue] = useState('');
   const [uniqueByModels, setUniqueByModels] = useState('');
 
+  interface Asset {
+  name: string;
+  // add more fields if needed, e.g., id: string, type: string, etc.
+}
+
+
   const fetchAssets = async () => {
     try {
       const res = await axios.get(`${process.env.url}/api/assets`, {
         headers: { Authorization: `Bearer ${token()}` },
       });
 
-      const uniqueAssets = res.data.reduce((acc, curr) => {
+      // const uniqueAssets = res.data.reduce((acc, curr) => {
+      //   if (!acc.some(asset => asset.name === curr.name)) {
+      //     acc.push(curr);
+      //   }
+      //   return acc;
+      // });
+
+      const uniqueAssets = res.data.reduce<Asset[]>((acc, curr) => {
         if (!acc.some(asset => asset.name === curr.name)) {
-          acc.push(curr);
-        }
-        return acc;
-      });
+        acc.push(curr);
+         }
+         return acc;
+      }, []);
+
 
       setAssets(uniqueAssets);
       
