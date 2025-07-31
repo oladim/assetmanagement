@@ -8,11 +8,40 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        body: ["Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif"],
       },
+      colors:{
+        primary: "#008efa",
+        hover: "#135397",
+        yellow: "#e5e507",
+        secondary: "#14aaff"
+      }
     },
   },
   plugins: [],
 } satisfies Config;
+
+// export default {
+//   content: [
+//     './src/**/*.{js,jsx,ts,tsx}',
+//     "./src/**/*.{js,jsx,ts,tsx}",
+//     'node_modules/flowbite-react/lib/esm/**/*.js'
+//   ],
+//   theme: {
+//     extend: {
+//       fontFamily: {
+//         body: ["Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif"],
+//       },
+//       colors:{
+//         primary: "#008efa",
+//         hover: "#135397",
+//         yellow: "#e5e507",
+//         secondary: "#14aaff"
+//       }
+//     },
+//   },
+//   plugins: [
+//     require('flowbite/plugin')
+//   ],
+// }
