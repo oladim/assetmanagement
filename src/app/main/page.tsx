@@ -41,7 +41,7 @@ const MainLayout = () => {
        
     };
       checkAuth();
-  }, []);
+  });
 
 const renderPage = () => {
   // if (!isAuthenticated()) {

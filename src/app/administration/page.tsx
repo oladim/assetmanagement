@@ -70,7 +70,7 @@ const AdminSection = ({ title, endpoint }: { title: string; endpoint: string }) 
            
         };
           checkAuth();
-  }, []);
+  });
  
 
   return (
@@ -211,7 +211,7 @@ const ThresholdSection = () => {
           acc.push(curr);
         }
         return acc;
-      }, []);
+      });
 
       setAssets(uniqueAssets);
       
@@ -243,7 +243,7 @@ const ThresholdSection = () => {
 
   useEffect(() => {
     fetchAssets();
-  }, []);
+  });
 
   const handleThresholdChange = (assetName, value) => {
     setThresholds(prev => ({ ...prev, [assetName]: value }));
@@ -414,7 +414,7 @@ const Administration = () => {
       } else {
         setLoading(false);
       }
-    }, []);
+    });
     
   const sections = [
     { title: 'Product Types', endpoint: 'product-types' },

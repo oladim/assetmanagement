@@ -80,7 +80,7 @@ useEffect(() => {
            
         };
           checkAuth();
-  }, []);
+  });
 
   const fetchUsers = async () => {
     try {
@@ -96,7 +96,7 @@ useEffect(() => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  });
 
   return (
     <div className="p-6 max-w-5xl mx-auto">

@@ -30,7 +30,7 @@ const AssetPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [openModal, setOpenModal] = useState(false); // For opening modal
   const [newAsset, setNewAsset] = useState({
@@ -57,7 +57,7 @@ const AssetPage = () => {
     try {
       const token = sessionStorage.getItem('token');
       const response = await axios.get(
-        `http://10.11.15.175:3000/assets?page=${page}&pageSize=${pageSize}`, {
+        `${process.env.mainurl}/assets?page=${page}&pageSize=${pageSize}`, {
         headers: { Authorization: `Bearer ${token}` },
         }
       );
@@ -87,9 +87,8 @@ console.log(response.data)
 
   // Handle adding a new asset
   const handleAddAsset = async () => {
-    console.log(newAsset)
     try {
-      await axios.post("http://10.11.15.175:3000/assets", newAsset, {
+      await axios.post(`${process.env.mainurl}/assets`, newAsset, {
         headers: { 'Content-Type': 'application/json' },
       });
       handleCloseModal();
@@ -104,7 +103,7 @@ console.log(response.data)
   // Effect to fetch assets on component load
   useEffect(() => {
     fetchAssets();
-  }, []);
+  });
 
   return (
     <div style={{ padding: "20px" }}>

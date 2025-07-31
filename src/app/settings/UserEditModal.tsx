@@ -137,7 +137,7 @@ export default function UserEditModal({ user, onClose, onSave }) {
     };
 
     fetchLocations();
-  }, []);
+  });
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;

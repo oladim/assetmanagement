@@ -154,7 +154,7 @@ setLoading(false);
     };
 
     fetchItems();
-  }, []);
+  });
 
  
   
