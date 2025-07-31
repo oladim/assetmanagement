@@ -16,7 +16,7 @@ import { isAuthenticated } from '../utilities/isAuthenticated';
 const token = () => localStorage.getItem('token');
 
 // Reusable component for each section (Product Type, Vendor, etc.)
-const AdminSection = ({ title: { title: string }, endpoint: { title: string } }) => {
+const AdminSection = ({ title, endpoint }: { title: string; endpoint: string }) => {
   const router = useRouter();
 
   const [items, setItems] = useState([]);
