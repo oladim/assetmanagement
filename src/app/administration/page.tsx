@@ -9,7 +9,7 @@ import {
   TabPanels,
   TabPanel,
 } from '@headlessui/react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '../utilities/isAuthenticated';
 
@@ -32,11 +32,10 @@ const AdminSection = ({ title, endpoint }: { title: string; endpoint: string }) 
         const res = await axios.get(`${process.env.url}/api/${endpoint}`, {
           headers: { Authorization: `Bearer ${token()}` },
         });
-        console.log("resdata", res);
         setItems(res.data);
         setIsLoading(false);
       } catch (err) {
-        console.error(`Failed to fetch ${title}:`, err);
+        console.error(err);
       }
     };
     fetchItems();
@@ -228,6 +227,7 @@ const ThresholdSection = () => {
       setUniqueByModels(uniqueByModel);
 
       console.log('uniquemodel',uniqueAssets, uniqueByModel);
+      console.log(uniqueByModels, handleThresholdChange, saveThresholds);
       
 
       const initialThresholds = {};

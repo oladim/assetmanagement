@@ -161,6 +161,7 @@ export default function UserEditModal({ user, onClose, onSave }) {
       onSave();
       setTimeout(onClose, 1000);
     } catch (err) {
+      console.error(err);
       setMessage('Error saving changes');
     } finally {
       setSaving(false);

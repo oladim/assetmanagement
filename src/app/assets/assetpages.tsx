@@ -69,6 +69,7 @@ console.log(response.data)
       // setAssets([data]);
       setTotalPages(response.data.totalPages);
     } catch (err) {
+      console.error(err);
       setError("Failed to fetch asset. Please try again later.");
     }
     setLoading(false);
@@ -95,6 +96,7 @@ console.log(response.data)
       fetchAssets(currentPage); // Refresh the table after adding a new asset
       alert("Asset added successfully!");
     } catch (err) {
+      console.error(err);
       alert("Failed to add asset. Please check the input and try again.");
     }
   };
