@@ -19,7 +19,8 @@ const token = () => localStorage.getItem('token');
 const AdminSection = ({ title, endpoint }: { title: string; endpoint: string }) => {
   const router = useRouter();
 
- const [items, setItems] = useState<any[]>([]);
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [items, setItems] = useState<any[]>([]);
   const [newItem, setNewItem] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
