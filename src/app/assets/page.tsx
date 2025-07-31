@@ -191,40 +191,40 @@ useEffect(() => {
   }, [filter, filterBy]);
 
   
-const ProductTypeDropdown = ({ value, onChange }) => {
-  const [productTypes, setProductTypes] = useState([]);
+// const ProductTypeDropdown = ({ value, onChange }) => {
+//   const [productTypes, setProductTypes] = useState([]);
 
-  useEffect(() => {
-    const fetchProductTypes = async () => {
-      try {
-        const response = await axios.get(`${process.env.url}/api/product-types`);
-        setProductTypes(response.data);
-      } catch (error) {
-        console.error('Error fetching product types:', error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchProductTypes = async () => {
+//       try {
+//         const response = await axios.get(`${process.env.url}/api/product-types`);
+//         setProductTypes(response.data);
+//       } catch (error) {
+//         console.error('Error fetching product types:', error);
+//       }
+//     };
 
-    fetchProductTypes();
-  }, []);
-}
+//     fetchProductTypes();
+//   }, []);
+// }
 
-  const addProductType = async (name) => {
-    try {
-      const response = await axios.post(`${process.env.url}/api/product-types`, { name });
-      setProductTypes([...productTypes, response.data]); // Update state with new item
-    } catch (error) {
-      console.error('Error adding product type:', error);
-    }
-  };
+  // const addProductType = async (name) => {
+  //   try {
+  //     const response = await axios.post(`${process.env.url}/api/product-types`, { name });
+  //     setProductTypes([...productTypes, response.data]); // Update state with new item
+  //   } catch (error) {
+  //     console.error('Error adding product type:', error);
+  //   }
+  // };
 
-  const updateProductType = async (id, newName) => {
-    try {
-      const response = await axios.put(`${process.env.url}/api/product-types/${id}`, { name: newName });
-      setProductTypes(productTypes.map((type) => (type._id === id ? response.data : type)));
-    } catch (error) {
-      console.error('Error updating product type:', error);
-    }
-  };
+  // const updateProductType = async (id, newName) => {
+  //   try {
+  //     const response = await axios.put(`${process.env.url}/api/product-types/${id}`, { name: newName });
+  //     setProductTypes(productTypes.map((type) => (type._id === id ? response.data : type)));
+  //   } catch (error) {
+  //     console.error('Error updating product type:', error);
+  //   }
+  // };
   
 
 // const handleReturn = async () => {
@@ -383,29 +383,29 @@ const handleAssignAsset = async () => {
       } else {
         setLoading(false);
       }
-    }, []);
+    });
   
-  const handleStatusChange = (e) => {
-    const value = e.target.value;
-    if (value === 'other') {
-      setSelectedStatus('');
-      setNewAsset({ ...newAsset, status: '' }); // Reset newAsset.status when selecting "Other"
-    } else {
-      setSelectedStatus(value);
-      setNewAsset({ ...newAsset, status: value }); // Ensure newAsset.status is updated
-      setNewStatus('');
-    }
-  };
+  // const handleStatusChange = (e) => {
+  //   const value = e.target.value;
+  //   if (value === 'other') {
+  //     setSelectedStatus('');
+  //     setNewAsset({ ...newAsset, status: '' }); // Reset newAsset.status when selecting "Other"
+  //   } else {
+  //     setSelectedStatus(value);
+  //     setNewAsset({ ...newAsset, status: value }); // Ensure newAsset.status is updated
+  //     setNewStatus('');
+  //   }
+  // };
   
   
-  const handleAddNewStatus = () => {
-    if (newStatus && !statuses.includes(newStatus)) {
-      setStatuses([...statuses, newStatus]); // Add the new status to the list
-      setSelectedStatus(newStatus); // Select the new status
-      setNewAsset({ ...newAsset, status: newStatus }); // Ensure newAsset.status is updated
-      setNewStatus('');
-    }
-  };
+  // const handleAddNewStatus = () => {
+  //   if (newStatus && !statuses.includes(newStatus)) {
+  //     setStatuses([...statuses, newStatus]); // Add the new status to the list
+  //     setSelectedStatus(newStatus); // Select the new status
+  //     setNewAsset({ ...newAsset, status: newStatus }); // Ensure newAsset.status is updated
+  //     setNewStatus('');
+  //   }
+  // };
   
 
   const handleAddSave = async () => {
@@ -446,17 +446,17 @@ const handleAssignAsset = async () => {
 
 
 
-  const handleEditChange = (e) => {
-    const { name, value } = e.target;
+  // const handleEditChange = (e) => {
+  //   const { name, value } = e.target;
   
-    setSelectedAsset((prev) => ({
-      ...prev,
-      [name]: value,
-      ...(name === "status" && value === "Decommissioned"
-        ? { decommissionedDate: new Date().toISOString().split("T")[0] } // Set today's date
-        : {}),
-    }));
-  };
+  //   setSelectedAsset((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //     ...(name === "status" && value === "Decommissioned"
+  //       ? { decommissionedDate: new Date().toISOString().split("T")[0] } // Set today's date
+  //       : {}),
+  //   }));
+  // };
   
 
   const handleEditSave = async () => {

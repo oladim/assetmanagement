@@ -5,12 +5,12 @@ import AssetPage from "../assets/page";
 import Administration from "../administration/page";
 import Settings from "../settings/page";
 import Dashboard from "../dashboard/page";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../component/AuthContext';
+// import { useAuth } from '../component/AuthContext';
 import { HiCog, HiOutlineArrowNarrowLeft, HiCurrencyDollar, HiLogout, HiViewGrid, HiOutlineUsers, HiOutlineZoomIn, HiOutlineUser } from 'react-icons/hi';
   
-import { isAuthenticated, isAuthorized } from '../utilities/isAuthenticated'; // adjust path as needed
+import { isAuthenticated} from '../utilities/isAuthenticated'; // adjust path as needed
 
 const MainLayout = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const MainLayout = () => {
   // const { user } = useAuth();
  
 
-  const icons = [HiCog, HiCurrencyDollar, HiLogout, HiViewGrid, HiOutlineUsers, HiOutlineZoomIn, HiOutlineUser]
+  // const icons = [HiCog, HiCurrencyDollar, HiLogout, HiViewGrid, HiOutlineUsers, HiOutlineZoomIn, HiOutlineUser]
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -27,7 +27,7 @@ const MainLayout = () => {
   };
   
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    // const token = localStorage.getItem('token');
     const checkAuth = async () => {
       const authenticated = await isAuthenticated();
       console.log("isauthenticated", authenticated);

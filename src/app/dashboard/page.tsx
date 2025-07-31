@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { Bell, Search } from "lucide-react";
-import Image from "next/image";
+import { Bell } from "lucide-react";
+// import Image from "next/image";
 import axios from "axios";
 import { useRouter } from 'next/navigation';
 // import { useAuth } from "../component/AuthContext";
@@ -16,9 +16,9 @@ export default function Dashboard() {
 
     // console.log(user.token)
 
-  const [search, setSearch] = useState("");
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [search, setSearch] = useState("");
+  // const [items, setItems] = useState([]);
+  const [setIsLoading] = useState(true);
 
   const [totalAssets, setTotalAssets] = useState(0);
   const [totalLocations, setTotalLocations] = useState(0);
@@ -28,8 +28,8 @@ export default function Dashboard() {
   const [countPerLocation, setCountPerLocation] = useState([]);
   const [urgentAttentionSystem, setUrgentAttention] = useState([]);
   const [user, setUser] = useState(null);
-  const [urgentAttentionSys, setUrgentAttentionSystem] = useState([]);
-  const [urgentAttentionLow, setUrgentAttentionLow] = useState([]);
+  // const [urgentAttentionSys, setUrgentAttentionSystem] = useState([]);
+  const [setUrgentAttentionLow] = useState([]);
  
   
 

@@ -147,7 +147,7 @@ export default function Login() {
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [pendingApproval, setPendingApproval] = useState(false);
   const [message, setMessage] = useState('');
