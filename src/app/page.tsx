@@ -157,7 +157,7 @@ export default function Login() {
 
   useEffect(() => {
     setMounted(true);
-  });
+  },[]);
 
   const handleOk = () => {
     setPendingApproval(false);

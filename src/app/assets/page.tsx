@@ -383,7 +383,7 @@ const handleAssignAsset = async () => {
       } else {
         setLoading(false);
       }
-    });
+    }, [router]);
   
   // const handleStatusChange = (e) => {
   //   const value = e.target.value;

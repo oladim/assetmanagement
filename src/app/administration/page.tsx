@@ -414,7 +414,7 @@ const Administration = () => {
       } else {
         setLoading(false);
       }
-    });
+    }, [router]);
     
   const sections = [
     { title: 'Product Types', endpoint: 'product-types' },
