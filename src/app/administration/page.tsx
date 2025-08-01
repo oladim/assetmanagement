@@ -264,10 +264,16 @@ const uniqueAssets = data.reduce((acc: Asset[], curr) => {
       console.log(uniqueByModels, handleThresholdChange, saveThresholds);
       
 
-      const initialThresholds = {};
-      uniqueAssets.forEach(asset => {
-        initialThresholds[asset.name] = asset.threshold || '';
-      });
+      // const initialThresholds = {};
+      // uniqueAssets.forEach(asset => {
+      //   initialThresholds[asset.name] = asset.threshold || '';
+      // });
+
+      const initialThresholds: { [key: string]: string } = {};
+uniqueAssets.forEach(asset => {
+  initialThresholds[asset.name] = asset.threshold || '';
+});
+
 
       setThresholds(initialThresholds);
     } catch (err) {
