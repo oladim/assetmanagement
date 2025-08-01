@@ -13,6 +13,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "noImplicitAny": true,
+    // Optional: during build, you can temporarily relax
+    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
