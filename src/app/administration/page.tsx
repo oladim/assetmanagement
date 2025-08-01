@@ -285,9 +285,14 @@ uniqueAssets.forEach(asset => {
     fetchAssets();
   });
 
-  const handleThresholdChange = (assetName, value) => {
-    setThresholds(prev => ({ ...prev, [assetName]: value }));
-  };
+  // const handleThresholdChange = (assetName, value) => {
+  //   setThresholds(prev => ({ ...prev, [assetName]: value }));
+  // };
+
+  const handleThresholdChange = (assetName: string, value: string) => {
+  setThresholds(prev => ({ ...prev, [assetName]: value }));
+};
+
 
   const saveThresholds = async () => {
     try {
