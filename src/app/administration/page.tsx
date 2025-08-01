@@ -239,14 +239,24 @@ const uniqueAssets = data.reduce((acc: Asset[], curr) => {
 
       setAssets(uniqueAssets);
       
+      // const uniqueByModel = Object.values(
+      //   uniqueAssets.reduce((acc, asset) => {
+      //     if (!acc[asset.model]) {
+      //       acc[asset.model] = asset;
+      //     }
+      //     return acc;
+      //   }, {})
+      // );
+
       const uniqueByModel = Object.values(
-        uniqueAssets.reduce((acc, asset) => {
-          if (!acc[asset.model]) {
-            acc[asset.model] = asset;
-          }
-          return acc;
-        }, {})
-      );
+  uniqueAssets.reduce((acc: { [key: string]: Asset }, asset) => {
+    if (!acc[asset.model]) {
+      acc[asset.model] = asset;
+    }
+    return acc;
+  }, {})
+);
+
 
       setUniqueByModels(uniqueByModel);
 
