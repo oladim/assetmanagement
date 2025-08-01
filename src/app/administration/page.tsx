@@ -195,15 +195,20 @@ const AdminSection = ({ title, endpoint }: { title: string; endpoint: string }) 
 
 
 const ThresholdSection = () => {
-  const [assets, setAssets] = useState([]);
-  const [thresholds, setThresholds] = useState({});
+  // const [assets, setAssets] = useState([]);
+  // const [thresholds, setThresholds] = useState({});
   const [selectedAsset, setSelectedAsset] = useState('');
   const [selectedValue, setSelectedValue] = useState('');
-  const [uniqueByModels, setUniqueByModels] = useState('');
+  // const [uniqueByModels, setUniqueByModels] = useState('');
+  const [assets, setAssets] = useState<Asset[]>([]);
+const [uniqueByModels, setUniqueByModels] = useState<Asset[]>([]);
+const [thresholds, setThresholds] = useState<{ [key: string]: string }>({});
 
-  interface Asset {
+
+ interface Asset {
   name: string;
-  // add more fields if needed, e.g., id: string, type: string, etc.
+  model: string;
+  threshold?: string;
 }
 
 
