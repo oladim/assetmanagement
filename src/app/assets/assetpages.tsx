@@ -112,6 +112,12 @@ console.log(response.data)
   useEffect(() => {
     fetchAssets();
   });
+  const fetchAssets = async () => {
+  setLoading(true);
+  // ... fetch logic
+  setLoading(false);
+};
+
 
   return (
     <div style={{ padding: "20px" }}>
@@ -152,14 +158,24 @@ console.log(response.data)
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{ marginRight: "10px" }}
           />
-          <Button
+          {/* <Button
             variant="contained"
             color="primary"
             onClick={fetchAssets}
             disabled={loading}
           >
             Search
-          </Button>
+          </Button> */}
+
+          <Button
+  variant="contained"
+  color="primary"
+  onClick={fetchAssets}
+  disabled={loading}
+>
+  Search
+</Button>
+
         </div>
       </div>
 
