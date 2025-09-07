@@ -80,10 +80,18 @@ console.log(response.data)
   const handleCloseModal = () => setOpenModal(false);
 
   // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewAsset((prev) => ({ ...prev, [name]: value }));
-  };
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setNewAsset((prev) => ({ ...prev, [name]: value }));
+  // };
+
+  const handleInputChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+) => {
+  const { name, value } = e.target;
+  setNewAsset((prev) => ({ ...prev, [name]: value }));
+};
+
 
   // Handle adding a new asset
   const handleAddAsset = async () => {
