@@ -28,19 +28,34 @@ const AddAssetForm = () => {
   });
 };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const token = sessionStorage.getItem('token'); // Assuming token is stored in localStorage
-      await axios.post(`${process.env.mainurl}/assets`, formData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      alert('Asset added successfully!');
-    } catch (error) {
-      console.error(error);
-      alert('Error adding asset');
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const token = sessionStorage.getItem('token'); // Assuming token is stored in localStorage
+  //     await axios.post(`${process.env.mainurl}/assets`, formData, {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     });
+  //     alert('Asset added successfully!');
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert('Error adding asset');
+  //   }
+  // };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try {
+    const token = sessionStorage.getItem('token'); // or localStorage
+    await axios.post(`${process.env.mainurl}/assets`, formData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    alert('Asset added successfully!');
+  } catch (error) {
+    console.error(error);
+    alert('Error adding asset');
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit}>
