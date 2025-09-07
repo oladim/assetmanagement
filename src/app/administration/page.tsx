@@ -289,6 +289,13 @@ uniqueAssets.forEach(asset => {
   //   setThresholds(prev => ({ ...prev, [assetName]: value }));
   // };
 
+  interface Asset {
+  _id: string;      // <-- add this
+  model: string;
+  // ...other fields
+}
+
+
   const handleThresholdChange = (assetName: string, value: string) => {
   setThresholds(prev => ({ ...prev, [assetName]: value }));
 };
